@@ -1,0 +1,16 @@
+%html.mdl-js{:lang => "en"}
+  %head
+    = Haml::Engine.new(File.read('./app/views/partials/_head.html.haml')).render(Object.new, GameService::head)
+    -#= render :partial => "head"
+  %body
+    %section#introduction
+      .container
+        .row.fill-viewport.align-items-center.justify-content-center
+          .col-12.col-md-6
+            .row.justify-content-center
+              .col-md-auto
+                %h1.text-white.title= page_not_found
+            %hr.mb-4/
+            .row.justify-content-center
+              .col-md-auto
+                %a.btn.btn-success.btn-lg{:href => "#{UrlGeneratorService::generate_url('home')}", :role => "button"}= home_button

@@ -1,0 +1,31 @@
+%html.mdl-js{:lang => "en"}
+  %head
+    = Haml::Engine.new(File.read('./app/views/partials/_head.html.haml')).render(Object.new, GameService::head)
+    -#= render :partial => "head"
+  %body
+    %section#introduction
+      .container
+        .row.fill-viewport.align-items-center.justify-content-center
+          .col-12.col-md-6
+            .row
+              .col-md-auto
+                %h1.text-white.title= title
+            .row
+              %p.lead.text-white-70
+                = short_rules
+            %hr.mb-4/
+            %form{:method => "post", :action => "#{UrlGeneratorService::generate_url('home')}"}
+              .form-group
+                %label.lead.label{:for => "player_name"}= player_name_label
+                %input#player_name.form-control{:name => "player_name", :pattern => "^[\\w\\u0400-\\u04ff]{3,20}$", :placeholder => "Your name", :autofocus => "", :required => ""}/
+              .form-group
+                %label.lead.label{:for => "level"}= level_label
+                %select.custom-select{:name => "level", :required => ""}
+                  - levels.each do |level|
+                    %option{:value => "#{level[:value]}"} #{level[:name]}
+              %hr.mb-4/
+              %button.btn.btn-primary.btn-lg{:type => "submit"}= start_game_button
+              %span.float-right
+
+                %a.btn.btn-warning.btn-lg{:href => "#{UrlGeneratorService::generate_url('rules')}", :role => "button"}= rules_button
+                %a.btn.btn-success.btn-lg{:href => "#{UrlGeneratorService::generate_url('statistics')}", :role => "button"}= statistics_button

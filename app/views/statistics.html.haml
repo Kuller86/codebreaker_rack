@@ -1,0 +1,27 @@
+%html.mdl-js{:lang => "en"}
+  %head
+    = Haml::Engine.new(File.read('./app/views/partials/_head.html.haml')).render(Object.new, GameService::head)
+  %body
+    %section#introduction
+      .container
+        .row.fill-viewport.align-items-center.justify-content-center
+          .col-12.col-md-6
+            .row
+              .col-md-auto
+                %h1.text-white.title= title
+            %p.lead.text-white-70
+            %hr.mb-4/
+            .table-responsive-md.scores
+              %table.table.table-striped.table-sm
+                %thead
+                  %tr
+                    - table_headers.each do |key, name|
+                      %th{:scope => "col"}= name
+                %tbody
+                  - table_rows.each_with_index do |row, index|
+                    %tr
+                      %th{:scope => "row"}= index+1
+                      - row.each do |cell|
+                        %td= cell
+            %hr.mb-4/
+            %a.btn.btn-primary.btn-lg{:href => "#{UrlGeneratorService::generate_url('home')}", :role => "button"}= home_button
