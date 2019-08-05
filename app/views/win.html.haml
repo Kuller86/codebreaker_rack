@@ -1,0 +1,34 @@
+%html.mdl-js{:lang => "en"}
+  %head
+    = Haml::Engine.new(File.read('./app/views/partials/_head.html.haml')).render(Object.new, GameService::head)
+  %body
+    %section#introduction
+      .container
+        .row.fill-viewport.align-items-center.justify-content-center
+          .col-12.col-md-6
+            .row
+              .col-md-auto
+                %h1.text-white.title= title
+            .row
+              .col.button
+                %button.btn.btn-primary{:type => "button", :disabled => "disabled"}
+                  = level_label
+                  %span.badge.badge-light= level
+              .col.text-center.button
+                %button.btn.btn-primary{:type => "button", :disabled => "disabled"}
+                  = attempts_label
+                  %span.badge.badge-light= attempts
+              .col.button
+                %button.btn.btn-primary.float-right{:type => "button", :disabled => "disabled"}
+                  = hints_label
+                  %span.badge.badge-light= hints
+            %hr.mb-4/
+            .row
+              .text-center
+                .text-center
+                  %h3.text-white
+                    = congratulations_message
+                %img.img-fluid{:src => "./app/assets/images/won.gif", :alt => "#{alt_congratulations_image}"}
+            %hr.mb-4/
+            %a.btn.btn-primary.btn-lg{:href => "#{UrlGeneratorService::generate_url('game')}", :role => "button"}= play_again_button
+            %a.btn.btn-success.btn-lg.float-right{:href => "#{UrlGeneratorService::generate_url('statistics')}", :role => "button"}= statistics_button

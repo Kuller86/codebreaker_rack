@@ -1,0 +1,46 @@
+en:
+  menu:
+    title: 'Codebreaker 2019'
+    short_rules: 'Try to guess 4-digit number, that consists of numbers in a range from 1 to 6.'
+    level_label: 'Game level'
+    player_name_label: 'Player''s name'
+    levels:
+      empty: 'Choose game level...'
+      easy: 'Easy'
+      medium: 'Medium'
+      hard: 'Hard'
+  buttons:
+    home: 'Home!'
+    start_game: 'Start the game!'
+    rules: 'Rules'
+    statistics: 'Statistics'
+    submit: 'Submit'
+    play_again: 'Play again!'
+
+  game:
+    level: 'Level:'
+    attempts: 'Attempts:'
+    hints: 'Hints:'
+    show_hint: 'Show hint!'
+  win:
+    attempts: 'Attempts Left:'
+    hints: 'Hints Left:'
+    congratulations_message: 'Congratulations, %{player_name}! You won the game!'
+    alt_congratulations_image: 'You won the game!'
+  lose:
+    lose_message: 'Oops, %{player_name}! You lose the game!'
+    code_message: 'The code was'
+    alt_lose_image: 'You lose the game!'
+  statistics:
+    table:
+      headers:
+        number: '#'
+        name: 'Name'
+        level: 'Level'
+        attempts_left: 'Attempts Left'
+        hints_left: 'Hints Left'
+        date: 'Date'
+  page_not_found: 'Page not found!'
+  user_not_registered: 'User not registered!'
+  url_not_found_by_name: 'Url with name "%{name}" not found'
+
